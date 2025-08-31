@@ -29,6 +29,9 @@ public class Invoice {
     private double paid;
     private double balance;
 
+    private String district;
+    private String country;
+
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 

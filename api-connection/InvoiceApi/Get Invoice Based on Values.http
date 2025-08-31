@@ -1,0 +1,12 @@
+### GET request to example server
+GET http://localhost:8080/api/invoice/search?Keyword=9876543210
+
+#GET http://localhost:8080/api/invoice/search?Keyword=MBS Traders // used to serach based on the keyword
+#customer name:
+#ph number:
+#invoice number:
+#email:
+
+
+
+###

@@ -19,7 +19,22 @@ public class InvoiceService {
 
     private static final Logger logger = Logger.getLogger(InvoiceService.class.getName());
 
+
+    // 🔹 Generate sequential invoice number (INV-1001, INV-1002, ...)
+    private String generateInvoiceNo() {
+        long count = repo.count(); // number of invoices in DB
+        return "INV-" + (1001 + count);
+    }
+
+
+
+
     public Invoice createInvoice(Invoice invoice) {
+
+        // only set invoiceNo if not already present (frontend doesn’t send it)
+        if (invoice.getInvoiceNo() == null || invoice.getInvoiceNo().isEmpty()) {
+            invoice.setInvoiceNo(generateInvoiceNo());
+        }
         return repo.save(invoice);
     }
 
@@ -44,6 +59,8 @@ public class InvoiceService {
     public Optional<Invoice> updateInvoice(Long id, Invoice updatedInvoice) {
         return repo.findById(id).map(existing -> {
             updatedInvoice.setId(existing.getId());
+            // 👇 don’t change invoiceNo during update
+            updatedInvoice.setInvoiceNo(existing.getInvoiceNo());
             return repo.save(updatedInvoice);
         });
     }

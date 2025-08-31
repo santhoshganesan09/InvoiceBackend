@@ -1,0 +1,21 @@
+### GET request to example server
+PUT http://localhost:8080/api/invoice/2
+
+
+{
+  "invoiceNo": "INV-1001",
+  "invoiceDate": "2025-07-01",
+  "customerName": "Ravi Kumar Updated",
+  "phone": "9876543210",
+  "email": "ravi.kumar@example.com",
+  "address": "No. 1, Gandhi Street, Chennai",
+  "serviceDescription": "UI/UX Design - Updated",
+  "servicePrice": 4800.0,
+  "tax": 864.0,
+  "total": 5664.0,
+  "paid": 4800.0,
+  "balance": 864.0,
+  "paymentMethod": "UPI"
+}
+
+###
